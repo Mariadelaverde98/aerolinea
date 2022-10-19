@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #2e2e5c;
+}
+
+#continuar {
+    font-family: system-ui;
+    font-size: large;
+    color: #2e2e5c;
+    font-weight: 500;
+    padding: 7px;
+    background-color: aliceblue;
+    border: 0.5px solid white;
+    box-shadow: 1px 1px 6px black;
+}
+
+#continuar:hover {
+    background-color: #4e4e79;
+    color: aliceblue;
+}
