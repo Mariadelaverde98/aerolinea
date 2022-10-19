@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <script src="nav.js"></script>
     <link href="home.css" rel="stylesheet">
 </head>
+
 <body>
     <nav></nav>
     <div id="fondoHome"></div>
@@ -15,9 +17,14 @@
         <div class="busqueda">
             <input type="text" placeholder="Origen">
             <input type="text" placeholder="Destino">
-            <button>🔎</button>
+            <label for=""><input type="number" class="pasajeros" id="pasajeros" min="1" max="10" placeholder="Nº de pasajeros"></label>
+            <label><input type="date" class="fecha" id="fecha"></label>
+            
+            <button id="buscar" onclick="buscarVuelos();">Buscar vuelos</button>
         </div>
-    
+
     </div>
+    <script src="home.js"></script>
 </body>
+
 </html>
