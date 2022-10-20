@@ -4,9 +4,19 @@ window.onload = () => {
     nav.style.height = '60px';
     nav.style.backgroundColor = 'rgba(255, 255, 255, 0.55)';
     nav.style.display = 'flex';
-    nav.style.justifyContent = 'flex-end';
+    nav.style.justifyContent = 'space-between';
     nav.style.alignItems = 'center';
     
+    //logo
+    var enlaceHome = document.createElement('a');
+    enlaceHome.setAttribute('href', 'home.html');
+    nav.appendChild(enlaceHome);
+    var logo = document.createElement('img');
+    logo.setAttribute('src', './img/logopng.png');
+    enlaceHome.appendChild(logo);
+    logo.style.width = '275px';
+
+    //perfil
     var enlaceUser = document.createElement('a');
     enlaceUser.setAttribute('href', 'perfil.html');
     enlaceUser.style.color = 'black';

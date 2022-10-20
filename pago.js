@@ -16,7 +16,7 @@ function confirmarPago() {
             'cvv': cvv
         });
         localStorage.setItem('reservaActual', JSON.stringify(reserva));
-        window.location = 'compra.html';
+        window.location = 'resumen.html';
     } else {
         alert('Todos los campos son obligatorios');
     }
