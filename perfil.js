@@ -117,7 +117,7 @@ function deshabilitarEdicion(){
     });   
 }
 
-//pinta la gráfica de los daviniair points
+//pinta la gráfica de los davinity points
 function pintarGrafica () {
     var sesion = sesionFromLocalStorage();
     var usuario = usuarioFromSesion(sesion);
@@ -125,7 +125,7 @@ function pintarGrafica () {
     var noPoints = 10000 - usuario.points;
     
     const labels = [
-        'Daviniair points por conseguir','Daviniair points'
+        'Davinity points por conseguir','Davinity points'
       ];
     
       const data = {
@@ -147,7 +147,7 @@ function pintarGrafica () {
         document.getElementById('myChart'),
         config
     );
-    document.getElementById("mostrarPoints").innerHTML = `<p>Tienes ${points} Davinair points</p>`
+    document.getElementById("mostrarPoints").innerHTML = `<p>Tienes ${points} Davinity points</p>`
 }
 
 document.getElementById("defaultOpen").click();
