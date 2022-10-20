@@ -72,16 +72,19 @@ window.onload = () => {
     nav.appendChild(enlaceUser);
     var icono_user = document.createElement('img');
     icono_user.setAttribute('src', './img/user-solid.svg');
+    icono_user.style.height = "36px";
+    icono_user.style.marginRight = "5px";
     enlaceUser.appendChild(icono_user);
-    enlaceUser.style.width = '46px'
+    enlaceUser.style.width = '146px'
     icono_user.style.border = '3px solid'
     icono_user.style.borderRadius = '100%'
     icono_user.style.paddingLeft = '2%';
     icono_user.style.paddingRight = '2%';
     enlaceUser.style.marginRight = '1%';
- 
-    if(localStorage.getItem("sesion")){
-        enlaceUser.setAttribute('href', 'perfil.html');
+    var sesion = JSON.parse(localStorage.getItem("sesion"));
+    if(sesion){
+        enlaceUser.appendChild(document.createTextNode(`Hola, ${sesion.usuario.nom}`));
+        nav.appendChild(enlaceUser);
     }else{
         dropdownMenu(nav);
     }
