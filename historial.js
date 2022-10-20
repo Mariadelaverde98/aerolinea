@@ -28,20 +28,46 @@ function desplegarHistorial() {
     // let printReserva = `No. reserva: ${numeroReserva}`;
     // let printFechaReserva = `Comprado el : ${fechReserva}`;
     // let printPagado = `Total compra: ${pagado} €`;
-    
+    // console.log(comprasUsuario);
     comprasUsuario.forEach(element => {
         let numeroReserva = element.numReserva;
         let fechReserva = element.fechaReserva;
         let pasajes = element.numPasajes;
-        let printPasajes = pasajes.forEach(element => {
-            let vuelo  = document.createElement('li');
-            let vueloDatos = document.createTextNode(element)
-            vuelo.appendChild(vueloDatos);
-        });
+        // console.table(pasajes);
+        // console.log(pasajes);
+        let infoVuelos = [];
+        // console.log(infoVuelos.length);
+        for (let i = 0; i < pasajes.length; i++) {
+
+            if (infoVuelos.length == 0) {
+                infoVuelos.push(pasajes[i].vuelo);
+                infoVuelos.push(pasajes[i].Pasajero);
+            } else {
+                infoVuelos.push(pasajes[i].Pasajero);
+            }
+            console.log(infoVuelos.length);
+        }
+        console.log(infoVuelos);
+        // if (!infoVuelos) {
+        //     infoVuelos.push(element.vuelo);
+        // } else {
+        //     infoVuelos.push(element.Pasajero);
+        // }
+        // console.log(infoVuelos);
+        // let pVuelo  = document.createElement('p');
+        // let vueloDatos = document.createTextNode(vuelo);
+        // pVuelo.appendChild(vueloDatos);
+
+        // let pPasajeros  = document.createElement('p');
+        // let pasajeroDatos = document.createTextNode(pasajero);
+        // pVuelo.appendChild(vueloDatos);
+        // });
+        // console.table(printPasajes);
         let pagado = element.totalPagado;
         let printReserva = `No. reserva: ${numeroReserva}`;
         let printFechaReserva = `Comprado el : ${fechReserva}`;
         let printPagado = `Total compra: ${pagado} €`;
+        let printVuelo = `Número de vuelo: ${infoVuelos[0]}`
         let container = document.createElement('div');
         container.setAttribute('class', 'container card');
         var documentFragment = document.createDocumentFragment();
@@ -58,10 +84,17 @@ function desplegarHistorial() {
         col2.appendChild(contenidoCol2);
         let row2 = document.createElement('div');
         row2.setAttribute('class', 'row');
-        let col3 = document.createElement('div');
+        let col3 = document.createElement('p');
         col3.setAttribute('class', 'col');
-        let contenidoCol3 = document.createTextNode(printPasajes);
+        let contenidoCol3 = document.createTextNode(printVuelo);
         col3.appendChild(contenidoCol3);
+        for (let i = 1; i < infoVuelos.length; i++) {
+            console.log(infoVuelos[i])
+            let contenidoCol3b = document.createTextNode(infoVuelos[i]);
+            let parrafo = document.createElement('p');
+            parrafo.appendChild(contenidoCol3b);
+            col3.appendChild(parrafo);
+        }
         let row3 = document.createElement('div');
         row3.setAttribute('class', 'row');
         let col4 = document.createElement('div');
