@@ -6,7 +6,7 @@ function encogerBusqueda() {
     divs[0].style.display = 'none';
     if (divs.length == 1) {
         var div = document.createElement('div');
-        div.setAttribute('class', 'busqueda');
+        div.setAttribute('class', 'busqueda busqueda2');
         var p = document.createElement('p');
 
         p.appendChild(document.createTextNode(`MAD → ${destino} |  Fecha: ${fecha} | Número de pasajeros: ${numPasajeros}`));

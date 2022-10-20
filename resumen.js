@@ -14,7 +14,7 @@ function resumenPasajeros(pasajeros) {
     var div = document.getElementsByClassName('resumenpasajeros')[0];
     for(let i = 0; i < pasajeros.length; i++) {
         var p = document.createElement('p');
-        p.appendChild(document.createTextNode('PASAJERO ' + i + ':'));
+        p.appendChild(document.createTextNode(`PASAJERO: ${i+1}`));
         var p2 = document.createElement('p');
         p2.appendChild(document.createTextNode(`Nombre: ${pasajeros[i].nombre} ${pasajeros[i].apellidos} DNI: ${pasajeros[i].dni}`));
         div.appendChild(p);

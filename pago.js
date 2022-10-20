@@ -1,9 +1,8 @@
 function confirmarPago() {
-    var nombre = document.getElementsByTagName('input')[0].value;
-    var numTarjeta = document.getElementsByTagName('input')[1].value;
-    var fechaEx = document.getElementsByTagName('input')[2].value;
-    var cvv = document.getElementsByTagName('input')[3].value;
-
+    var nombre = document.getElementById('cardholder').value;
+    var numTarjeta = document.getElementById('cardnumber').value;
+    var fechaEx = document.getElementById('date').value;
+    var cvv = document.getElementById('cvv').value;
     //Y que lleve a una pagina donde se muestran los datos de la compra
     if (nombre != '' && numTarjeta != '' && fechaEx != '' && cvv != '') {
         var reserva = new Reserva();

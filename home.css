@@ -39,7 +39,7 @@ body {
 
 .busqueda input[type=text] {
     width: 45%;
-    height: 30px;
+    height: 34px;
     font-size: large;
     padding-left: 5px;
 }
@@ -116,5 +116,13 @@ select {
 .cajareserva p{
     font-size:x-large;
     justify-content: space-between;
+}
+
+div.busqueda.busqueda2 {
+    width: 90%;
+    margin-top: 1%;
+    height: fit-content !important; 
+    display: flex;
+    justify-content: space-around;
 }
 
