@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,61 @@
     <title>Pago</title>
     <link href="pago.css" rel="stylesheet">
 </head>
+
 <body>
     <nav></nav>
-
+    <div id="wrapper">
+        <div class="row">
+            <div class="col-xs-5">
+                <div id="cards">
+                    <img src="http://icons.iconarchive.com/icons/designbolts/credit-card-payment/256/Visa-icon.png">
+                    <img
+                        src="http://icons.iconarchive.com/icons/designbolts/credit-card-payment/256/Master-Card-icon.png">
+                </div>
+                <!--#cards end-->
+            </div>
+            <!--col-xs-5 end-->
+            
+        </div>
+        <!--row end-->
+        <div class="row">
+            <div class="col-xs-5">
+                <i class="fa fa fa-user"></i>
+                <label for="cardholder">Nombre del titular</label>
+                <input type="text" id="cardholder">
+            </div>
+            <!--col-xs-5-->
+            <div class="col-xs-5">
+                <i class="fa fa-credit-card-alt"></i>
+                <label for="cardnumber">Número de tarjeta</label>
+                <input type="text" id="cardnumber">
+            </div>
+            <!--col-xs-5-->
+        </div>
+        <!--row end-->
+        <div class="row row-three">
+            <div class="col-xs-2">
+                <i class="fa fa-calendar"></i>
+                <label for="date">Fecha de expedición</label>
+                <input type="text" placeholder="MM/YY" id="date">
+            </div>
+            <!--col-xs-3-->
+            <div class="col-xs-2">
+                <i class="fa fa-lock"></i>
+                <label for="date">CVV / CVC *</label>
+                <input type="text">
+            </div>
+            <!--col-xs-3-->
+            <div class="col-xs-5">
+                <span class="small">* CVV o CVC es el código numérico de tres dígitos situado en la parte trasera de su tarjeta de crédito.</span>
+            </div>
+            <!--col-xs-6 end-->
+        </div>
+        <!--row end-->
+    </div>
+    <!--wrapper end-->
     <button id="continuar">CONTINUAR</button>
     <script src="nav.js"></script>
 </body>
+
 </html>

@@ -15,16 +15,20 @@
     <div id="fondoHome"></div>
     <div class="contenedor">
         <div class="busqueda">
-            <input type="text" placeholder="Origen">
-            <input type="text" placeholder="Destino">
+            <input type="text" placeholder="Origen" value="Madrid">
+            <select id="destion">
+                <option>Edimburgo</option>
+                <option>Ciudad de Mexico</option>
+                <option>París</option>
+            </select>
             <label for=""><input type="number" class="pasajeros" id="pasajeros" min="1" max="10" placeholder="Nº de pasajeros"></label>
             <label><input type="date" class="fecha" id="fecha"></label>
             
-            <button id="buscar" onclick="buscarVuelos();">Buscar vuelos</button>
+            <button id="buscar" onclick="encogerBusqueda(); buscarVuelos();">Buscar vuelos</button>
         </div>
-
     </div>
     <script src="home.js"></script>
+    <script src="vuelo.js"></script>
 </body>
 
 </html>
