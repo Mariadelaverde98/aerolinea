@@ -92,7 +92,7 @@ function pintarVuelos(vuelosEncontrados) {
 
     vuelosEncontrados.forEach(vuelo => {
         //pinta los vuelos en un div concreto
-        
+
         var div1 = document.createElement("div");
         var p = document.createElement("p")
 
@@ -116,19 +116,24 @@ function pintarVuelos(vuelosEncontrados) {
             //recoger el objeto del localstorage
             var localStorageVuelos = JSON.parse(localStorage.getItem("vuelos"));
             //recorrer el localStorage
-            localStorageVuelos.forEach(localVuelo => {
-                if (idVuelo == localVuelo.id) {
-                    //restar asientos
-                    localVuelo.asientosLibres -= asientosQueQuiereElUsuario;
-                    //Volvemos a actualizar base de datos con los plazas restantes
-                    localStorage.setItem("vuelos", JSON.stringify(localStorageVuelos))
-                    console.log(localVuelo)
-                }
-            })
             localStorage.setItem('vueloSeleccionado', JSON.stringify(vuelo));
             localStorage.setItem('numPasajerosReservaActual', asientosQueQuiereElUsuario);
             realizaReserva(vuelo);
-            window.location = 'reserva.html';
+            var sesion = JSON.parse(localStorage.getItem("sesion"));
+            if (sesion) {
+                localStorageVuelos.forEach(localVuelo => {
+                    if (idVuelo == localVuelo.id) {
+                        //restar asientos
+                        localVuelo.asientosLibres -= asientosQueQuiereElUsuario;
+                        //Volvemos a actualizar base de datos con los plazas restantes
+                        localStorage.setItem("vuelos", JSON.stringify(localStorageVuelos))
+                        console.log(localVuelo)
+                    }
+                });
+                window.location = 'reserva.html';
+            } else {
+                alert('Tienes que iniciar sesion');
+            }
         }
     })
 }

@@ -77,7 +77,7 @@ window.onload = () => {
 
     //perfil
     var enlaceUser = document.createElement('a');
-    // enlaceUser.setAttribute('href', 'perfil.html');
+    enlaceUser.setAttribute('href', 'perfil.html');
     enlaceUser.style.color = 'black';
     nav.appendChild(enlaceUser);
     var icono_user = document.createElement('img');
