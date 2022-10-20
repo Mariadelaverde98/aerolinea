@@ -3,25 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
+    <link href="home.css" rel="stylesheet">
+    <link href="perfil.css" rel="stylesheet">
+</head>
 </head>
 <body>
-    <div>
-        <label for="email">Email</label>
-        <input id="email" type="email" class="info-personal-input"></input>
+    <div class="contenedor">
+        <div class="registro">
+            <h2>Regístrate</h2>
+            <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" class="info-personal-input"></input>
+            </div>
+            <div>
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" class="info-personal-input"></input>
+            </div>
+            <div>
+                <label for="apellido">Apellido</label>
+                <input id="apellido" type="text" class="info-personal-input"></input>
+            </div>
+            <div>
+                <label for="password">Contraseña actual</label>
+                <input id="password" type="password" class="pass-input"></input>
+            </div>
+            <button onclick="registrarse()">Regístrate</button>
+        </div>
     </div>
-    <div>
-        <label for="nombre">Nombre</label>
-        <input id="nombre" type="text" class="info-personal-input"></input>
-    </div>
-    <div>
-        <label for="apellido">Apellido</label>
-        <input id="apellido" type="text" class="info-personal-input"></input>
-    </div>
-    <div>
-        <label for="password">Contraseña actual</label>
-        <input id="password" class="pass-input"></input>
-    </div>
-    <button onclick="registrarse()">Regístrate</button>
+    
     <script src="clases.js"></script>
     <script src="registro.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
