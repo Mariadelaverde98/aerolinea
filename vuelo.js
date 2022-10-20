@@ -96,11 +96,11 @@ function pintarVuelos(vuelosEncontrados) {
         var div1 = document.createElement("div");
         var p = document.createElement("p")
 
-        p.appendChild(document.createTextNode(`Mad → ${destinoBusqueda} ${vuelo.hora} -  ${vuelo.horallegada} ${vuelo.precio}€`))
+        p.appendChild(document.createTextNode(`Mad → ${destinoBusqueda} | ${vuelo.hora} -  ${vuelo.horallegada} | ${vuelo.precio}€`))
         divVuelos.appendChild(div1)
         div1.appendChild(p)
         div1.setAttribute("id", "cajaVuelo")
-        div1.setAttribute("class", "busqueda")
+        div1.setAttribute("class", "cajareserva")
         p.style.fontFamily = 'system-ui';
         p.style.fontWeight = '500';
         p.style.color = '#2E2E5C';
@@ -127,6 +127,7 @@ function pintarVuelos(vuelosEncontrados) {
             })
             localStorage.setItem('vueloSeleccionado', JSON.stringify(vuelo));
             localStorage.setItem('numPasajerosReservaActual', asientosQueQuiereElUsuario);
+            realizaReserva(vuelo);
             window.location = 'reserva.html';
         }
     })
