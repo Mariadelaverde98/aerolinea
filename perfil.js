@@ -167,6 +167,6 @@ function openContent(evt, id) {
   }
  
 
-// inicializacion();
+inicializacion();
 mostrarDatos();
 pintarGrafica ();
