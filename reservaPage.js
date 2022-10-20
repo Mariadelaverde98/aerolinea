@@ -3,6 +3,7 @@
     for(let i = 0; i < numPasajeros; i++) {
         creaDiv(i);
     }
+    pintaPrecioTotal();
 })();
 
 function creaDiv(i) {
@@ -63,6 +64,13 @@ function creaDiv(i) {
     label.appendChild(document.createTextNode('Pasajero con necesidades especiales'));
     div3.appendChild(label);
     div3.setAttribute('class', 'pasajero');
+}
+
+
+function pintaPrecioTotal() {
+    var vuelo = JSON.parse(localStorage.getItem('vueloSeleccionado'));
+    var precioTotal = vuelo.precio * JSON.parse(localStorage.getItem('numPasajerosReservaActual'));
+    document.getElementById('precioTotal').appendChild(document.createTextNode('TOTAL: ' + precioTotal + '€'));
 }
 
 function continuarApago() {

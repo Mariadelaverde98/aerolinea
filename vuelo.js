@@ -127,6 +127,7 @@ function pintarVuelos(vuelosEncontrados) {
             })
             localStorage.setItem('vueloSeleccionado', JSON.stringify(vuelo));
             localStorage.setItem('numPasajerosReservaActual', asientosQueQuiereElUsuario);
+            realizaReserva(vuelo);
             window.location = 'reserva.html';
         }
     })

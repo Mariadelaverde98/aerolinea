@@ -16,9 +16,6 @@ body {
     background-color: aliceblue;
     border: 0.5px solid white;
     box-shadow: 1px 1px 6px black;
-    position: relative;
-    left: 88%;
-    top: 50px;
 }
 
 #continuar:hover {
@@ -39,7 +36,7 @@ body {
     background: #fff;
     border: 1px solid grey;
     border-radius: 10px;
-    margin: 3em auto 0 auto;
+    margin: 3em auto 94px auto;
     overflow: hidden;
     box-shadow: 0px 2px 25px #000;
 }
@@ -132,4 +129,21 @@ label {
 
 .col-xs-5.highlight {
     border: solid 1px blue;
+}
+
+#precioTotal {
+    font-family: system-ui;
+    font-size: large;
+    color: white;
+    font-weight: 500;
+}
+
+#precioBoton {
+    display: flex;
+    justify-content: space-around;
+    padding: 1%;
+    background-color: #0000004f;
+    align-items: center;
+    position: relative;
+    bottom: 0;
 }

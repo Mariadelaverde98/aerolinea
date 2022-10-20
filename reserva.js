@@ -14,8 +14,8 @@ class Reserva {
     }
 }
 
-function realizaReserva() {
-    var reserva = new Reserva(JSON.parse(localStorage.getItem('vueloSelecionado')));
+function realizaReserva(vuelo) {
+    var reserva = new Reserva(vuelo);
     localStorage.setItem('reservaActual', JSON.stringify(reserva));
 }
 
