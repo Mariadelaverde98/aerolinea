@@ -101,15 +101,13 @@ label {
 
 .row-three {
     display: flex;
-    justify-content: space-around;
-    align-items: baseline;
-    align-content: space-between;
-    margin: 2em 1em 2.4em 1em;
+    flex-direction: column;
+    align-items: center;
 }
 
 .row:nth-of-type(3) .col-xs-2 {
     flex-basis: 50%;
-    margin: 17px;
+    margin: 10px;
 }
 
 .row:nth-of-type(3) .col-xs-5 {
