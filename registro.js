@@ -1,7 +1,4 @@
-var usuarios = usuariosFromLocalStorage();
-console.log(usuarios);
-var usuario = new Usuario();
-console.log(usuario)
+
 function registrarse(){
     var usuario = new Usuario(document.getElementById("nombre").value,document.getElementById("apellido").value,"","",document.getElementById("email").value,"","",document.getElementById("password").value,0);
     console

@@ -166,7 +166,6 @@ function openContent(evt, id) {
     evt.currentTarget.className += " active";
   }
  
-
 inicializacion();
 mostrarDatos();
 pintarGrafica ();
