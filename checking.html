@@ -7,7 +7,6 @@
     <title>Historial de compras</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="checking.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -16,9 +15,9 @@
     <section>
         <div class="card muestra">
             <div class="row g-3 text-center">
-            <h2>Confirmación de datos</h2>
-            <p>Por favor revise sus datos personales para poder confirmar su vuelo</p>
-        </div>
+                <h2>Confirmación de datos</h2>
+                <p>Por favor revise sus datos personales para poder confirmar su vuelo</p>
+            </div>
             <form action="">
                 <div class="row g-3">
                     <div class="col ms-md-auto">
@@ -28,13 +27,13 @@
                     </div>
                     <div class="col ms-md-auto">
                         <label for="apellidos" class="form-label">Apellidos</label>
-                        <input type="text" name="Apellidos" id="nombre" placeholder=""
+                        <input type="text" name="Apellidos" id="apellidos" placeholder=""
                             class="form-control form-control-lg">
                     </div>
                 </div>
                 <div class="row g-3">
                     <label for="Documento de identidad" class="form-label">Documento de identidad</label>
-                    <input type="text" name="Documento de Identidad" placeholder=""
+                    <input type="text" name="Documento de Identidad" id="dni" placeholder=""
                         class="form-control form-control-lg">
                 </div>
                 <div class="row g-3">
@@ -42,13 +41,13 @@
                     <input type="email" name="email" id="email" class="form-control form-control-lg">
                 </div>
                 <div class="row g-3">
-                <label for="telefono" class="form-label">Teléfono</label>
-                <input type="tel" name="telefono" id="telefono" class="form-control form-control-lg">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="tel" name="telefono" id="telefono" class="form-control form-control-lg">
                 </div>
                 <div class="row g-3">
                     <div class="col-12">
                         <button type="submit" class="btn btn-secondary">Confirmar datos</button>
-                      </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -86,8 +85,9 @@
                         <input type="radio" name="tourist" value="00"><label for="00">00</label>
                         <div class="row g-3">
                             <div class="col-12">
-                                <button type="submit" class="btn btn-secondary" onclick="guardarAsiento()">Confirmar asiento</button>
-                              </div>
+                                <button type="submit" class="btn btn-secondary" onclick="guardarAsiento()">Confirmar
+                                    asiento</button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -102,7 +102,7 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <button type="submit" class="btn btn-secondary">Confirmar asiento</button>
-                              </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -131,6 +131,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
         integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
         crossorigin="anonymous"></script>
+    <script src="checking.js"></script>
 </body>
 
 </html>
