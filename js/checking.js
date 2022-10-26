@@ -2,7 +2,7 @@ function guardarAsiento() {
     let asientoSelec = document.querySelector('input[name="tourist"]:checked.value');
     console.log(asientoSelec)
 }
-// funcion comprobar checking disponible si es mas 48 bloqueado
+
 (() => {
     // recoge la informacion del localStorage
     let datosSesion = JSON.parse(localStorage.sesion);
@@ -90,3 +90,4 @@ function confirmacion() {
 // Telefono RegEXP
 
 // Buscar en el local Storage el asiento si no esta añadirlo
+// funcion comprobar checking disponible si es mas 48 bloqueado
