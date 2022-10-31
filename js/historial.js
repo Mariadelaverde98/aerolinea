@@ -1,12 +1,36 @@
 class Compra {
-    constructor(numReserva, fechaReserva, usuario, numPasajes, vuelo, totalPagado) {
+    constructor(numReserva, fechaReserva, usuario, numPasajes, vuelo, asientosLibres, asientosOcupados, totalPagado) {
         this.numReserva = numReserva;
         this.fechaReserva = fechaReserva;
         this.usuario = usuario;
         this.numPasajes = numPasajes;
         this.vuelo = vuelo;
+        this.asientosLibres = asientosLibres;
+        this.asientosOcupados = asientosOcupados;
         this.totalPagado = totalPagado;
     }
+}
+// import-export class Vuelo
+
+let compra1 = new Compra(
+    '0001', 
+    '2022-10-28', 
+    'D0001', 
+    [JSON.parse('{"vuelo": "B504", "Pasajero": "Helen Mederos"}')],
+    "AB544", 
+    '1,500');
+let compra2 = new Compra(
+    '0002', 
+    '2022-10-28', 
+    'D0001', 
+    [JSON.parse('{"vuelo": "B505", "Pasajero": "Gerardo Mir"}'), JSON.parse('{"vuelo": "B505", "Pasajero": "Gerar2"}')], 
+    "AB544", 
+    '1,500');
+function subirHistorial() {
+    // Generar una fecha de compra con getdate y una fecha de vuelo de menos de 48h y otra de mas de 48h
+    localStorage.clear();
+    var historial = [compra1, compra2];
+    localStorage.setItem("compras", JSON.stringify(historial));
 }
 
 function userHistorial() {
@@ -93,13 +117,4 @@ function desplegarHistorial() {
 
 }
 
-let compra1 = new Compra('0001', '2022-10-28', 'D0001', [JSON.parse('{"vuelo": "B505", "Pasajero": "Gerardo Mir"}'), JSON.parse('{"vuelo": "B505", "Pasajero": "Gerar2"}')], "AB544", '1,500');
-let compra2 = new Compra('0002', '2022-10-28', 'D0001', [JSON.parse('{"vuelo": "B504", "Pasajero": "Helen Mederos"}')], "AB544", '1,500');
-let compra3 = new Compra('0003', '2022-10-28', 'D0003', [JSON.parse('{"vuelo": "B503", "Pasajero": "Mary of the Green"}'), JSON.parse('{"vuelo": "B505", "Pasajero": "Serg Shepherd "}')], "AB544", '1,500');
-function subirHistorial() {
-    localStorage.clear();
-    var historial = [compra1, compra2, compra3];
-    localStorage.setItem("compras", JSON.stringify(historial));
-}
 
-userHistorial();

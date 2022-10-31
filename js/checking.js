@@ -1,8 +1,3 @@
-function guardarAsiento() {
-    let asientoSelec = document.querySelector('input[name="tourist"]:checked.value');
-    console.log(asientoSelec)
-}
-
 (() => {
     // recoge la informacion del localStorage
     let datosSesion = JSON.parse(localStorage.sesion);
@@ -22,7 +17,7 @@ function checkNomApe(name) {
     let regExpNom = /(^[A-ZÁÉÍÓÚ]{1}([a-zñáéíóú]+){2,})(\s[A-ZÁÉÍÓÚ]{1}([a-zñáéíóú]+){2,})?$/;
     let check = document.getElementById(name).value;
     if (!regExpNom.test(check)) {
-        alert('El nombre no es correcto');
+        alert('Por favor introduce tus datos correctamente');
         document.getElementById(name).style.outline = "#ff000087 solid";
         return false;
     } else {
@@ -53,7 +48,7 @@ function checkDni() { // Valida Dni o NIE}
         }
     } else {
         document.getElementById("dni").style.outline = "#ff000087 solid";
-        alert('Dni erroneo, formato no válido');
+        alert('Por favor introduce un DNI correcto');
         return false;
     }
 }
@@ -62,7 +57,7 @@ function checkEmail() { // Valida Email
     let email = document.getElementById("email").value;
     if (!regExpEmail.test(email)) {
             document.getElementById("email").style.outline = "#ff000087 solid";
-            alert('Email erroneo');
+            alert('Por favor introduce un email correcto');
             return false;
         } else {
             return true;
@@ -71,23 +66,22 @@ function checkEmail() { // Valida Email
 function checkTel() { // Valida Telefono
     let regExpTel = /^(?:(?:\+?[0-9]{2,4})?[ ]?[6789][0-9 ]{8,13})$/;
     let tel = document.getElementById("telefono").value;
-    if (!regExpTel.test(email)) {
+    if (!regExpTel.test(tel)) {
             document.getElementById("telefono").style.outline = "#ff000087 solid";
-            alert('Teléfono erroneo');
+            alert('Por favor, introuce un teléfono correcto');
             return false;
         } else {
             return true;
         }
 }
 function confirmacion() {
-    
+    if (checkNomApe('nombre') && 
+    checkNomApe('apellidos') && 
+    checkDni() &&
+    checkEmail() &&
+    checkTel()) {
+        window.location.assign("/pago.html");
+    } else {
+        alert("not ok");
+    }
 }
-// Validar los datos con regExp
-// Nombre
-// Apellidos
-// DNI RegExp
-// email 
-// Telefono RegEXP
-
-// Buscar en el local Storage el asiento si no esta añadirlo
-// funcion comprobar checking disponible si es mas 48 bloqueado

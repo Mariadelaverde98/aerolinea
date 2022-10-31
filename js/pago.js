@@ -11,7 +11,7 @@ function confirmarPago() {
         reserva.setMetodoPago({
             'nombre': nombre,
             'numeroTarjeta': numTarjeta,
-            'fechaExpedicion': fechaEx,
+            'fechaExpiracion': fechaEx,
             'cvv': cvv
         });
         localStorage.setItem('reservaActual', JSON.stringify(reserva));

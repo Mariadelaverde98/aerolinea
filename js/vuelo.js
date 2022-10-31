@@ -35,7 +35,7 @@ function genera30fechas() {
     var fechas = [];
     for (let ms = hoy * 1; ms < fin * 1; ms += unDia) {
         fecha = new Date(ms)
-        fechas.push(`${fecha.getFullYear()}-${fecha.getMonth() + 1}-${fecha.getDate()}`);
+        fechas.push(`${fecha.getFullYear()}-${fecha.getMonth() + 1}-${("0" + fecha.getDate()).slice(-2)}`);
     }
     return fechas;
 
