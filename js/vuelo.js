@@ -1,5 +1,5 @@
 //creamos con el constructor una nueva clase vuelo con los siguientes datos:
-class Vuelo {
+export class Vuelo {
     constructor(id, origen, destino, fecha, hora, horallegada, asientosLibres, precio) {
         this.id = id;
         this.origen = origen;

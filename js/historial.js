@@ -5,30 +5,42 @@ class Compra {
         this.usuario = usuario;
         this.numPasajes = numPasajes;
         this.vuelo = vuelo;
-        this.asientosLibres = asientosLibres;
-        this.asientosOcupados = asientosOcupados;
-        this.totalPagado = totalPagado;
+        // this.asientosLibres = asientosLibres;
+        // this.asientosOcupados = asientosOcupados;
+        // this.totalPagado = totalPagado;
     }
 }
-// import-export class Vuelo
+// import { Vuelo } from './vuelo.js';
 
-let compra1 = new Compra(
-    '0001', 
-    '2022-10-28', 
-    'D0001', 
-    [JSON.parse('{"vuelo": "B504", "Pasajero": "Helen Mederos"}')],
-    "AB544", 
-    '1,500');
-let compra2 = new Compra(
-    '0002', 
-    '2022-10-28', 
-    'D0001', 
-    [JSON.parse('{"vuelo": "B505", "Pasajero": "Gerardo Mir"}'), JSON.parse('{"vuelo": "B505", "Pasajero": "Gerar2"}')], 
-    "AB544", 
-    '1,500');
+Date.prototype.addHours = function () {
+    this.setTime(this.getTime() + (47 * 60 * 60 * 1000));
+    return this;
+}
 function subirHistorial() {
-    // Generar una fecha de compra con getdate y una fecha de vuelo de menos de 48h y otra de mas de 48h
-    localStorage.clear();
+    let fecha = new Date(); // extraigo la fecha de hoy y le sumo 47 horas 
+    let fechaMenos48h = fecha.addHours();
+    let dd = String(fechaMenos48h.getDate()).padStart(2, '0');
+    let mm = String(fechaMenos48h.getMonth() + 1).padStart(2, '0');
+    let yyyy = fechaMenos48h.getFullYear();
+    let horaMenos48h = fechaMenos48h.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    fechaMenos48h = yyyy + '/' + mm + '/' + dd;
+    let compra1 = new Compra(
+        '0001', // Numero de reserva
+        '2022-10-28', // Fecha de reserva, aqui el dia de la compra
+        'gofthet@gmail.com',  // Aqui el correo del usuario
+        [JSON.parse('{"nombre": "Gerardo", "Apellidos": "Mir Garcia", "dni": "52656007Z"}')], // Pasajeros
+        [JSON.parse('{"id":"000","origen":"Madrid","destino":"Edimburgo","fecha":"","hora":"","horallegada":"10:15","asientosLibres":"25","asientosOcupados":["1A","2A","4C","1DC","2DC"],"precio":240}')]);
+    compra1.vuelo[0].fecha = fechaMenos48h;
+    compra1.vuelo[0].hora =  horaMenos48h;
+    console.log(compra1);
+    let compra2 = new Compra(
+        '0002', // Numero de reserva
+        '2022-10-28', // Fecha de reserva, aqui el dia de la compra
+        'gofthet@gmail.com',  // Aqui el correo del usuario
+        [JSON.parse('{"nombre": "Gerardo", "Apellidos": "Mir Garcia", "dni": "52656007Z"}'), JSON.parse('{"nombre": "Gerar2", "Apellidos": "Mir Garcia", "dni": "52656008Z"}')],
+        [JSON.parse('{"id":"001","origen":"Madrid","destino":"Paris","fecha":"2022/11/31","hora":"14:00","horallegada":"19:15","asientosLibres":30,"precio":120}')]);
+        console.log(compra1);
+        // localStorage.clear();
     var historial = [compra1, compra2];
     localStorage.setItem("compras", JSON.stringify(historial));
 }
@@ -37,7 +49,7 @@ function userHistorial() {
     let historial = JSON.parse(localStorage.compras);
     if (historial == null) { alert('Todavía no has hecho compras') };
     let comprasUsuario = historial.filter(element => {
-        if (element.usuario == "D0001") {
+        if (element.usuario == "gofthet@gmail.com") {
             return element;
         }
     });
