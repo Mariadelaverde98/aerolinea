@@ -29,18 +29,18 @@ function subirHistorial() {
         '2022-10-28', // Fecha de reserva, aqui el dia de la compra
         'gofthet@gmail.com',  // Aqui el correo del usuario
         [JSON.parse('{"nombre": "Gerardo", "Apellidos": "Mir Garcia", "dni": "52656007Z"}')], // Pasajeros
-        [JSON.parse('{"id":"000","origen":"Madrid","destino":"Edimburgo","fecha":"","hora":"","horallegada":"10:15","asientosLibres":"25","asientosOcupados":["1A","2A","4C","1DC","2DC"],"precio":240}')]);
+        [JSON.parse('{"id":"DA000","origen":"Madrid","destino":"Edimburgo","fecha":"","hora":"","horallegada":"10:15","asientosLibres":25,"asientosOcupados":["1A","2A","4C","1DC","2DC"],"precio":120}')]);
     compra1.vuelo[0].fecha = fechaMenos48h;
-    compra1.vuelo[0].hora =  horaMenos48h;
+    compra1.vuelo[0].hora = horaMenos48h;
     console.log(compra1);
     let compra2 = new Compra(
         '0002', // Numero de reserva
         '2022-10-28', // Fecha de reserva, aqui el dia de la compra
         'gofthet@gmail.com',  // Aqui el correo del usuario
         [JSON.parse('{"nombre": "Gerardo", "Apellidos": "Mir Garcia", "dni": "52656007Z"}'), JSON.parse('{"nombre": "Gerar2", "Apellidos": "Mir Garcia", "dni": "52656008Z"}')],
-        [JSON.parse('{"id":"001","origen":"Madrid","destino":"Paris","fecha":"2022/11/31","hora":"14:00","horallegada":"19:15","asientosLibres":30,"precio":120}')]);
-        console.log(compra1);
-        // localStorage.clear();
+        [JSON.parse('{"id":"DA001","origen":"Madrid","destino":"Paris","fecha":"2022/11/31","hora":"14:00","horallegada":"19:15","asientosLibres": 30,"asientosOcupados":[""],"precio":240}')]);
+    console.log(compra1);
+    // localStorage.clear();
     var historial = [compra1, compra2];
     localStorage.setItem("compras", JSON.stringify(historial));
 }
@@ -56,27 +56,48 @@ function userHistorial() {
     return comprasUsuario;
 }
 function desplegarHistorial() {
-    let comprasUsuario = userHistorial()
+    let comprasUsuario = userHistorial();
     comprasUsuario.forEach(element => {
         let numeroReserva = element.numReserva;
         let fechReserva = element.fechaReserva;
         let pasajes = element.numPasajes;
-        let infoVuelos = [];
+        console.log("Esto es pasajes: " + pasajes[0]);
+        let infoPasajeros = [];
         for (let i = 0; i < pasajes.length; i++) {
-
-            if (infoVuelos.length == 0) {
-                infoVuelos.push(pasajes[i].vuelo);
-                infoVuelos.push(pasajes[i].Pasajero);
+            if (infoPasajeros.length == 0) {
+                infoPasajeros.push(pasajes[i].nombre);
+                infoPasajeros.push(pasajes[i].Apellidos);
+                infoPasajeros.push(pasajes[i].dni);
             } else {
-                infoVuelos.push(pasajes[i].Pasajero);
+                infoPasajeros.push(pasajes[i].nombre);
+                infoPasajeros.push(pasajes[i].Apellidos);
+                infoPasajeros.push(pasajes[i].dni);
             }
-            console.log(infoVuelos.length);
+            console.log("infoPasajeros length: " + infoPasajeros.length);
         }
-        console.log(infoVuelos);
-        let pagado = element.totalPagado;
+        let vuelo = element.vuelo;
+        let infoVuelos = [];
+        for (let i = 0; i < vuelo.length; i++) {
+            if (infoVuelos.length == 0) {
+                infoVuelos.push(vuelo[i].id);
+                infoVuelos.push(vuelo[i].destino);
+                infoVuelos.push(vuelo[i].fecha);
+                infoVuelos.push(vuelo[i].asientosLibres);
+                infoVuelos.push(vuelo[i].asientosOcupados);
+                infoVuelos.push(vuelo[i].precio);
+            } else {
+                infoVuelos.push(vuelo[i].id);
+                infoVuelos.push(vuelo[i].destino);
+                infoVuelos.push(vuelo[i].fecha);
+                infoVuelos.push(vuelo[i].asientosLibres);
+                infoVuelos.push(vuelo[i].asientosOcupados);
+                infoVuelos.push(vuelo[i].precio);
+            }
+        }
+        console.log(infoVuelos); 
         let printReserva = `No. reserva: ${numeroReserva}`;
         let printFechaReserva = `Comprado el : ${fechReserva}`;
-        let printPagado = `Total compra: ${pagado} €`;
+        let printPagado = `Total compra: ${infoVuelos[5]} €`;
         let printVuelo = `Número de vuelo: ${infoVuelos[0]}`
         let container = document.createElement('div');
         container.setAttribute('class', 'container card');
@@ -98,9 +119,11 @@ function desplegarHistorial() {
         col3.setAttribute('class', 'col');
         let contenidoCol3 = document.createTextNode(printVuelo);
         col3.appendChild(contenidoCol3);
-        for (let i = 1; i < infoVuelos.length; i++) {
-            console.log(infoVuelos[i])
-            let contenidoCol3b = document.createTextNode(infoVuelos[i]);
+        console.log(infoPasajeros.join(" ")); // split y join
+        for (let i = 0; i < infoPasajeros.length; i++) {
+            let k = infoPasajeros.length;
+            console.log(infoPasajeros);
+            let contenidoCol3b = document.createTextNode(infoPasajeros[i]);
             let parrafo = document.createElement('p');
             parrafo.appendChild(contenidoCol3b);
             col3.appendChild(parrafo);
@@ -122,11 +145,6 @@ function desplegarHistorial() {
         container.appendChild(row3);
         document.body.appendChild(container);
     });
-
-
-
-
-
 }
 
 
