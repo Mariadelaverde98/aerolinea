@@ -1,3 +1,5 @@
+import * as historial from './historial.js';
+
 function inicializacion(){
     var usuarios = new Usuarios();
     var user = new Usuario("elena","mederos","54058798N","18-02-1991","elena@gmail.com","+34","686246095", "password",7000);
@@ -7,6 +9,7 @@ function inicializacion(){
     // Quería usar el usuarios.guardarUSuarios(), pero si lo usaba no me debaja iniciar sesión.. por qué? No lo he descubierto
     localStorage.setItem("usuarios", JSON.stringify(usuarios))
     deshabilitarEdicion();
+    historial.desplegarHistorial();
    
 }
 

@@ -1,4 +1,4 @@
-class Compra {
+export class Compra {
     constructor(numReserva, fechaReserva, usuario, numPasajes, vuelo, asientosLibres, asientosOcupados, totalPagado) {
         this.numReserva = numReserva;
         this.fechaReserva = fechaReserva;
@@ -10,6 +10,7 @@ class Compra {
         // this.totalPagado = totalPagado;
     }
 }
+
 // import { Vuelo } from './vuelo.js';
 (function subirHistorial() {
     let fecha = new Date(); // extraigo la fecha de hoy y le sumo 47 horas 
@@ -39,11 +40,11 @@ class Compra {
     var historial = [compra1, compra2];
     localStorage.setItem("compras", JSON.stringify(historial));
 })();
-function sumar47(date) {
+export function sumar47(date) {
     date.setTime(date.getTime() + (47 * 60 * 60 * 1000));
     return date;
 }
-function userHistorial() {
+export function userHistorial() {
     let historial = JSON.parse(localStorage.compras);
     if (historial == null) { alert('Todavía no has hecho compras') };
     let comprasUsuario = historial.filter(element => {
@@ -53,9 +54,10 @@ function userHistorial() {
     });
     return comprasUsuario;
 }
-function desplegarHistorial() {
+export function desplegarHistorial() {
     let comprasUsuario = userHistorial();
-    comprasUsuario.forEach(element => {
+    comprasUsuario.forEach((element, i) => {
+        let contA = i;
         let numeroReserva = element.numReserva;
         let fechReserva = element.fechaReserva;
         let pasajes = element.numPasajes;
@@ -141,13 +143,14 @@ function desplegarHistorial() {
         let hr = document.createElement("hr");
         col5.appendChild(hr);
         for (let i = 0; i < infoPasajeros.length; i++) {
-            let cont = i + 1;
-            let contenidoCol5cont = document.createTextNode(cont + '. ' + infoPasajeros[i]);
+            let cont = i;
+            let vueltas = [contA,cont];
+            let contenidoCol5cont = document.createTextNode(cont+1 + '. ' + infoPasajeros[i]);
             let parrafo = document.createElement('p');
             parrafo.appendChild(contenidoCol5cont);
             if (diferenciaFechas < 48) {
                 let boton = document.createElement('button');
-                boton.setAttribute('class', 'btn btn-outline-success boton')
+                boton.setAttribute('value', vueltas);
                 let textButton = document.createTextNode('Checking disponible')
                 boton.appendChild(textButton);
                 parrafo.appendChild(boton);
@@ -173,15 +176,29 @@ function desplegarHistorial() {
         container.appendChild(row3);
         container.appendChild(row4);
         document.body.appendChild(container);
-        boton();
+
     });
+    boton();
 }
 
-function boton() {
-    const button = document.querySelector("button");
-    button.addEventListener("click", function () {
-        window.location = "checking.html"
-    });
+// function boton() {
+//     const button = document.querySelector("button");
+//     button.addEventListener("click", function () {
+
+
+//         window.location = "checking.html"
+//     });
+// }
+export function boton() {
+    let buttonList = document.querySelectorAll("button");
+    console.log(buttonList);
+    buttonList.forEach(function (i) {
+        i.addEventListener("click", function (e) {
+            // alert(e.target.innerHTML);
+            const button = e.target;
+            localStorage.setItem("checkinUser", JSON.stringify(button.value));
+            window.location = "checking.html";
+        })
+    })
 }
-   
 

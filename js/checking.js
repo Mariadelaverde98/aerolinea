@@ -1,18 +1,32 @@
 (() => {
     // recoge la informacion del localStorage
-    let datosSesion = JSON.parse(localStorage.sesion);
-    // introduce los datos de usuario  en los inputs correpondientes
-    let nomSesion = document.getElementById("nombre");
-    let apeSesion = document.getElementById('apellidos');
-    let dniSesion = document.getElementById('dni');
-    let emailSesion = document.getElementById('email');
-    let telSesion = document.getElementById('telefono');
-    nomSesion.value = datosSesion.usuario.nom;
-    apeSesion.value = datosSesion.usuario.ape;
-    dniSesion.value = datosSesion.usuario.dni;
-    emailSesion.value = datosSesion.usuario.email;
-    telSesion.value = datosSesion.usuario.tel;
+    // let datosSesion = JSON.parse(localStorage.sesion);
+    let datosCheckin = JSON.parse(localStorage.checkinUser);
+    let pos1 = datosCheckin[0];
+    let pos2 = datosCheckin[2];
+    imprimirDatosPasajero(pos1,pos2);
+    // // if ()
+    // // introduce los datos de usuario  en los inputs correpondientes
+    // let nomSesion = document.getElementById("nombre");
+    // let apeSesion = document.getElementById('apellidos');
+    // let dniSesion = document.getElementById('dni');
+    // let emailSesion = document.getElementById('email');
+    // let telSesion = document.getElementById('telefono');
+    // nomSesion.value = datosSesion.usuario.nom;
+    // apeSesion.value = datosSesion.usuario.ape;
+    // dniSesion.value = datosSesion.usuario.dni;
+    // emailSesion.value = datosSesion.usuario.email;
+    // telSesion.value = datosSesion.usuario.tel;
 })();
+function imprimirDatosPasajero(pos1,pos2) {
+    let datosCompras = JSON.parse(localStorage.compras);
+    let nomPasajero = document.getElementById("nombre");
+    let apePasajero = document.getElementById('apellidos');
+    let dniPasajero = document.getElementById('dni');
+    nomPasajero.value = datosCompras[pos1].numPasajes[pos2].nombre;
+    apePasajero.value = datosCompras[pos1].numPasajes[pos2].Apellidos;
+    dniPasajero.value = datosCompras[pos1].numPasajes[pos2].dni;
+}
 function checkNomApe(name) {
     let regExpNom = /(^[A-ZÁÉÍÓÚ]{1}([a-zñáéíóú]+){2,})(\s[A-ZÁÉÍÓÚ]{1}([a-zñáéíóú]+){2,})?$/;
     let check = document.getElementById(name).value;
@@ -24,6 +38,7 @@ function checkNomApe(name) {
         return true;
     }
 }
+
 function checkDni() { // Valida Dni o NIE}
     let regExpDNI = /^[XYZ]?\d{5,8}[A-Z]$/;
     let dni = document.getElementById("dni").value;
@@ -68,7 +83,7 @@ function checkTel() { // Valida Telefono
     let tel = document.getElementById("telefono").value;
     if (!regExpTel.test(tel)) {
             document.getElementById("telefono").style.outline = "#ff000087 solid";
-            alert('Por favor, introuce un teléfono correcto');
+            alert('Por favor, introduce un teléfono correcto');
             return false;
         } else {
             return true;
@@ -80,7 +95,7 @@ function confirmacion() {
     checkDni() &&
     checkEmail() &&
     checkTel()) {
-        window.location.assign("/pago.html");
+        alert("ok");
     } else {
         alert("not ok");
     }
