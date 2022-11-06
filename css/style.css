@@ -22,4 +22,17 @@ h1 {
 button {
     margin: 1% 0;
 }
-  
+.pasillo {
+    height: 10%;
+}
+hr {
+    margin: 0.2rem 0;
+}
+.pasajeros p {
+    margin: .5rem 0;
+}
+button {
+    /* float: right; */
+    font-size: 13px;
+    margin-top: 0;
+}

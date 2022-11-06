@@ -63,24 +63,9 @@ body {
     width: 50%;
 }
 
-.resumenpasajeros{
+.resumenpasajeros,.resumenvuelo, .resumenasiento {
     box-shadow: 1px 1px 5px;
     width: 700px;
     text-align: center;
     border: 1px solid grey;
-}
-
-.resumenvuelo{
-    box-shadow: 1px 1px 5px;
-    width: 700px;
-    text-align: center;
-    border: 1px solid grey;
-}
-
-.resumenprecio{
-    box-shadow: 1px 1px 5px;
-    width: 700px;
-    text-align: center;
-    border: 1px solid grey;
-
 }
